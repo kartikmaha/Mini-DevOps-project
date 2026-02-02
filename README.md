@@ -1,112 +1,98 @@
-🚀 End-to-End DevOps CI/CD Project (AWS)
-📌 Project Summary
+🚀 End-to-End DevOps CI/CD Project on AWS
 
-This project demonstrates a real-world DevOps CI/CD pipeline where code changes are automatically built, containerized, and deployed on AWS EC2 using industry-standard DevOps tools.
+🔧 Docker | Jenkins | Ansible | AWS EC2 | GitHub
 
-A developer only needs to push code to GitHub — the rest of the process is fully automated.
+📌 Project Overview
+
+✨ This repository showcases a real-world DevOps CI/CD pipeline where application changes are automatically built, containerized, and deployed on AWS EC2.
+
+🚫 No manual deployments
+⚡ Fully automated pipeline
+📦 Production-style workflow
 
 🧰 Tools & Technologies Used
-Tool	Purpose
-Git & GitHub	Source code management
-Jenkins	CI/CD automation
-Docker	Containerization
-Nginx	Web server for static website
-Ansible	Automated deployment
-AWS EC2	Cloud infrastructure
-⚙️ How the Pipeline Works (Simple Flow)
-Code Push → Jenkins → Docker Build → Docker Hub → Ansible → Live Website
 
-Step-by-step:
+🔹 Git & GitHub – Source code version control
+🔹 Jenkins – CI/CD pipeline automation
+🔹 Docker – Containerization of the application
+🔹 Nginx – Lightweight web server
+🔹 Ansible – Automated, agentless deployment
+🔹 AWS EC2 – Cloud infrastructure
 
-Developer pushes code to GitHub
-
-GitHub webhook triggers Jenkins automatically
-
-Jenkins builds a Docker image using Nginx
-
-Image is pushed to Docker Hub
-
-Jenkins runs Ansible playbook
-
-Ansible deploys the updated container on EC2
-
-Website updates automatically on port 80
+🔄 CI/CD Pipeline Flow
+👨‍💻 Code Push (GitHub)
+        ↓
+🔔 GitHub Webhook
+        ↓
+⚙️ Jenkins Pipeline
+        ↓
+🐳 Docker Build & Push
+        ↓
+📦 Docker Hub
+        ↓
+🤖 Ansible Deployment
+        ↓
+🌍 Live Website on AWS (Port 80)
 
 🏗️ Architecture Overview
+🖥️ Jenkins Server (EC2)
 
-Jenkins Server (EC2)
+✔ Jenkins installed
+✔ Docker installed
+✔ Ansible installed
+✔ Handles CI + CD orchestration
 
-Runs Jenkins
+🌐 Application Server (EC2)
 
-Builds Docker images
+✔ Docker installed
+✔ Runs containerized Nginx app
+✔ Serves website on port 80
 
-Triggers Ansible
+🔐 Deployment Model
 
-Application Server (EC2)
+🔸 Immutable Docker images
+🔸 No manual SSH changes
+🔸 Repeatable and consistent deployments
 
-Runs Docker containers
+🌍 Live Application
 
-Hosts the live website
+🧾 The deployed application is a static website that explains this DevOps pipeline.
 
-Deployment Type
+🔗 Access URL:
 
-Container-based
+[http://100.27.205.108/]
 
-Immutable deployments
 
-No manual server changes
+📡 Running on Port 80
+- app/
+  - index.html – Recruiter-facing static website
+  - Dockerfile – Nginx-based Docker image
+- ansible/
+  - inventory.ini – Target server inventory
+  - deploy.yml – Deployment playbook
+- Jenkinsfile – CI/CD pipeline definition
+- README.md – Project documentation
 
-🌐 Live Application
 
-The application is a static website explaining the DevOps pipeline itself.
-
-📍 Accessible via:
-
-http://<application-server-public-ip>
-
-📂 Repository Structure
-.
-├── app/
-│   ├── index.html        # Static website
-│   └── Dockerfile        # Nginx-based Docker image
-├── ansible/
-│   ├── inventory.ini    # Target servers
-│   └── deploy.yml       # Deployment playbook
-├── Jenkinsfile          # CI/CD pipeline definition
-└── README.md
 
 ✅ Key DevOps Concepts Demonstrated
 
-CI/CD automation
+✔ Continuous Integration & Continuous Deployment
+✔ Docker image lifecycle management
+✔ Infrastructure immutability
+✔ Agentless deployment using Ansible
+✔ Cloud-based deployment on AWS
+✔ CI/CD pipeline best practices
 
-Docker image lifecycle
+🔮 Future Enhancements
 
-Infrastructure immutability
-
-Agentless deployments using Ansible
-
-Cloud-based deployment on AWS
-
-Production-style pipeline design
-
-🔮 Future Enhancements (Planned)
-
-Infrastructure provisioning using Terraform
-
-Container orchestration with Kubernetes (EKS)
-
-Monitoring with Prometheus & Grafana
-
-Rolling updates and rollback strategy
+🚀 Infrastructure provisioning using Terraform
+☸️ Container orchestration with Kubernetes (EKS)
+📊 Monitoring using Prometheus & Grafana
+🔁 Rolling updates and rollback strategies
 
 🎯 Why This Project Matters
 
-This project reflects how modern DevOps teams:
-
-Automate deployments
-
-Eliminate manual errors
-
-Build scalable, repeatable pipelines
-
-Prepare applications for Kubernetes & cloud-native environments
+💡 Demonstrates production-ready DevOps skills
+💡 Mirrors real enterprise CI/CD workflows
+💡 Designed to scale into Kubernetes & cloud-native setups
