@@ -62,7 +62,6 @@
 
 [http://100.27.205.108/]
 
-
 📡 Running on Port 80
 - app/
   - index.html – Recruiter-facing static website
