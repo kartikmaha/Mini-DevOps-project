@@ -2,59 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DevOps CI/CD Demo</title>
+    <title>End-to-End DevOps CI/CD Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0f172a; /* dark navy */
-            color: #e5e7eb; /* light gray text */
-            text-align: center;
-            padding-top: 80px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f6f8;
             margin: 0;
+            padding: 0;
+            color: #2c3e50;
         }
-
+        header {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
         .container {
-            max-width: 700px;
+            max-width: 1100px;
             margin: auto;
-            background: #111827; /* darker card */
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            padding: 40px 20px;
         }
-
-        h1 {
-            color: #38bdf8; /* cyan-blue accent */
-            margin-bottom: 20px;
+        h2 {
+            color: #1e88e5;
+            margin-bottom: 10px;
         }
-
-        p {
-            color: #cbd5f5;
-            font-size: 18px;
-            margin: 10px 0;
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-
-        .tag {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 8px 16px;
-            border-radius: 20px;
-            background-color: #1e293b;
-            color: #38bdf8;
-            font-size: 14px;
-            letter-spacing: 0.5px;
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .flow {
+            background: #eef4ff;
+            border-left: 5px solid #1e88e5;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: monospace;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🚀 DevOps CI/CD Pipeline</h1>
-        <p>Static application deployed using</p>
-        <p><strong>Jenkins • Docker • Ansible</strong></p>
-        <p>Running on <strong>AWS EC2</strong></p>
+<header>
+    <h1>🚀 End-to-End DevOps CI/CD Project</h1>
+    <p>Automated Build, Containerization, and Deployment on AWS</p>
+</header>
 
-        <div class="tag">Dark Mode • CI/CD • DevOps</div>
+<div class="container">
+
+    <div class="section">
+        <h2>📌 Project Overview</h2>
+        <p>
+            This project demonstrates a real-world DevOps CI/CD pipeline where application changes
+            are automatically built, containerized, and deployed on AWS EC2 using industry-standard tools.
+        </p>
     </div>
+
+    <div class="section">
+        <h2>🧰 Tools & Technologies Used</h2>
+        <ul>
+            <li><strong>Git & GitHub</strong> – Source code management and version control</li>
+            <li><strong>Jenkins</strong> – CI/CD automation and pipeline orchestration</li>
+            <li><strong>Docker</strong> – Containerization of the application</li>
+            <li><strong>Nginx</strong> – Lightweight web server for serving static content</li>
+            <li><strong>Ansible</strong> – Configuration management and automated deployment</li>
+            <li><strong>AWS EC2</strong> – Cloud infrastructure for CI and application servers</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>⚙️ How the CI/CD Pipeline Works</h2>
+        <p>
+            The pipeline is fully automated and requires no manual intervention after code is pushed.
+        </p>
+
+        <div class="flow">
+            Developer Push → GitHub Webhook → Jenkins Pipeline → Docker Build & Push →
+            Ansible Deployment → Live Website
+        </div>
+
+        <ul>
+            <li>Developer pushes code changes to GitHub</li>
+            <li>GitHub webhook triggers Jenkins automatically</li>
+            <li>Jenkins builds a Docker image using Nginx</li>
+            <li>Image is pushed to Docker Hub</li>
+            <li>Ansible deploys the updated container on AWS EC2</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🌐 Deployment Architecture</h2>
+        <ul>
+            <li>Jenkins Server handles CI and automation</li>
+            <li>Application Server runs the containerized website</li>
+            <li>Containers expose the application on port <strong>80</strong></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🔮 Future Enhancements</h2>
+        <ul>
+            <li>Provision infrastructure using Terraform</li>
+            <li>Deploy containers using Kubernetes (EKS)</li>
+            <li>Enable monitoring with Prometheus and Grafana</li>
+            <li>Implement rolling updates and rollback strategies</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    <p>DevOps CI/CD Project | Built for Learning & Real-World Readiness</p>
+</footer>
 
 </body>
 </html>
