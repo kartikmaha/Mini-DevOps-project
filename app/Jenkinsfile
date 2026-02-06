@@ -5,7 +5,7 @@ pipeline{
         stage("Code Clone"){
             steps{
                 echo "Code Clone Stage"
-                git url: "https://github.com/kartikmaha/Mini-DevOps-project.git", branch: "master"
+                git url: "https://github.com/kartikmaha/devops-ci-cd-platform.git", branch: "master"
             }
         }
         stage("Code Build & Test"){
