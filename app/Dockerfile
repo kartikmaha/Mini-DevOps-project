@@ -13,12 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Environment variables (can be overridden by Jenkins)
-ENV ENVIRONMENT=dev
-ENV APP_VERSION=1.0.0
-ENV BUILD_NUMBER=manual
-ENV GIT_COMMIT=local
-
 # Expose Flask port
 EXPOSE 5000
 
