@@ -8,10 +8,10 @@ pipeline{
                 git url: "https://github.com/kartikmaha/devops-ci-cd-platform.git", branch: "master"
             }
         }
-        stage("Code Build & Test"){
+        stage("Code Build"){
             steps{
                 echo "Code Build Stage"
-                sh "docker build -t devops-app app"
+                sh "docker build --no-cache -t devops-app app"
             }
         }
         stage("Push To DockerHub"){
