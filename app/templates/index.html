@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>DevOps CI/CD Project</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>CI/CD Pipeline Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script defer src="/static/script.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <h1>🚀 DevOps CI/CD Mini Project</h1>
+<header>
+    <h1>🚀 CI/CD Pipeline Showcase</h1>
+    <p>Automated Build & Deployment using DevOps Best Practices</p>
+</header>
 
-    <div class="tabs">
-        <button onclick="loadDeployInfo()">Deployment Info</button>
-        <button onclick="loadProjectInfo()">Project Details</button>
+<section class="card">
+    <h2>📦 Deployment Information</h2>
+    <div id="deployment-info" class="grid"></div>
+</section>
+
+<section class="card">
+    <h2>🛠 Tools Used in Pipeline</h2>
+    <div id="tools" class="tools"></div>
+</section>
+
+<section class="card">
+    <h2>🔁 Pipeline Flow</h2>
+    <div class="pipeline">
+        <span>GitHub</span> ➜
+        <span>Jenkins</span> ➜
+        <span>Docker</span> ➜
+        <span>Ansible</span> ➜
+        <span>AWS EC2</span>
     </div>
+</section>
 
-    <div id="content" class="card">
-        <p>Click a tab to load information.</p>
-    </div>
-</div>
+<footer>
+    <p>Built for DevOps Demonstration • Dockerized Flask App</p>
+</footer>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
