@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevOps CI/CD Mini Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 DevOps CI/CD Mini Project</h1>
+    <p class="subtitle">Flask • Docker • Jenkins • Ansible</p>
+
+    <div class="card">
+        <p><strong>Status:</strong> {{ data.status }}</p>
+        <p><strong>Environment:</strong> {{ data.environment }}</p>
+        <p><strong>Version:</strong> {{ data.version }}</p>
+        <p><strong>Build Number:</strong> <span id="build">{{ data.build_number }}</span></p>
+        <p><strong>Git Commit:</strong> <span id="commit">{{ data.git_commit }}</span></p>
+        <p><strong>Deployed At:</strong> {{ data.deployed_at }}</p>
+    </div>
+
+    <button onclick="refreshInfo()">Refresh Info</button>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

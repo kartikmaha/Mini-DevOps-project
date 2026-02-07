@@ -4,20 +4,23 @@ FROM python:3.10-slim
 # Set working directory
 WORKDIR /app
 
-# Copy all app files
-COPY . .
+# Copy dependency file first (better caching)
+COPY requirements.txt .
 
 # Install dependencies
-RUN pip install flask
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Environment variables (overridden by Jenkins)
+# Copy application code
+COPY app/ .
+
+# Environment variables (can be overridden by Jenkins)
 ENV ENVIRONMENT=dev
 ENV APP_VERSION=1.0.0
 ENV BUILD_NUMBER=manual
 ENV GIT_COMMIT=local
 
-# Expose app port
+# Expose Flask port
 EXPOSE 5000
 
-# Run the API
+# Run the Flask app
 CMD ["python", "app.py"]
