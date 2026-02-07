@@ -1,17 +1,11 @@
----
 - hosts: appserver
   become: yes
   tasks:
-    - name: Remove existing container if it exists
-      community.docker.docker_container:
-        name: devops_app
-        state: absent
-
-    - name: Pull and start Docker image
-      community.docker.docker_container:
+    - name: Pull latest app image
+      docker_container:
         name: devops_app
         image: kartikmaha/devops-app:latest
         state: started
         restart_policy: always
         ports:
-          - "80:80"
+          - "5000:5000"

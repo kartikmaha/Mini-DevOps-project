@@ -1,13 +1,23 @@
-##FROM nginx:alpine
-FROM public.ecr.aws/nginx/nginx:alpine
-# Remove default nginx static files
-RUN rm -rf /usr/share/nginx/html/*
+# Base image
+FROM python:3.10-slim
 
-# Copy our static HTML page
-COPY index.html /usr/share/nginx/html/
+# Set working directory
+WORKDIR /app
 
-# Expose HTTP port
-EXPOSE 80
+# Copy all app files
+COPY . .
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Install dependencies
+RUN pip install flask
+
+# Environment variables (overridden by Jenkins)
+ENV ENVIRONMENT=dev
+ENV APP_VERSION=1.0.0
+ENV BUILD_NUMBER=manual
+ENV GIT_COMMIT=local
+
+# Expose app port
+EXPOSE 5000
+
+# Run the API
+CMD ["python", "app.py"]
