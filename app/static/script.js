@@ -1,35 +1,32 @@
-function loadDeployInfo() {
-    fetch("/api/deploy")
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById("content").innerHTML = `
-                <h3>Deployment Information</h3>
-                <p><b>Status:</b> ${data.status}</p>
-                <p><b>Environment:</b> ${data.environment}</p>
-                <p><b>Version:</b> ${data.version}</p>
-                <p><b>Build Number:</b> ${data.build_number}</p>
-                <p><b>Git Commit:</b> ${data.git_commit}</p>
-                <p><b>Deployed At:</b> ${data.deployed_at}</p>
-            `;
-        });
+async function loadInfo() {
+    const res = await fetch("/api/info");
+    const data = await res.json();
+
+    const container = document.getElementById("deployment-info");
+    container.innerHTML = "";
+
+    Object.entries(data).forEach(([key, value]) => {
+        const box = document.createElement("div");
+        box.className = "info-box";
+        box.innerHTML = `<span>${key.replace("_", " ").toUpperCase()}</span><strong>${value}</strong>`;
+        container.appendChild(box);
+    });
 }
 
-function loadProjectInfo() {
-    fetch("/api/project")
-        .then(res => res.json())
-        .then(data => {
-            let tools = data.tools.map(t => `<li>${t}</li>`).join("");
-            let flow = data.pipeline_flow.map(s => `<li>${s}</li>`).join("");
+async function loadTools() {
+    const res = await fetch("/api/tools");
+    const data = await res.json();
 
-            document.getElementById("content").innerHTML = `
-                <h3>${data.project_name}</h3>
-                <p>${data.description}</p>
+    const container = document.getElementById("tools");
+    container.innerHTML = "";
 
-                <h4>Tools Used</h4>
-                <ul>${tools}</ul>
-
-                <h4>Pipeline Flow</h4>
-                <ul>${flow}</ul>
-            `;
-        });
+    data.tools.forEach(tool => {
+        const div = document.createElement("div");
+        div.className = "tool";
+        div.innerHTML = `<strong>${tool.name}</strong><p>${tool.purpose}</p>`;
+        container.appendChild(div);
+    });
 }
+
+loadInfo();
+loadTools();
