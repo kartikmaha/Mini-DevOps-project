@@ -1,68 +1,105 @@
-:root {
-    --primary: #00d4ff;
-    --bg: #0b0e14;
-    --card-bg: #161b22;
-}
-
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg);
-    color: white;
-    overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+  color: #333;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 10%;
-    align-items: center;
+header {
+  padding: 20px;
+  text-align: center;
+  color: white;
 }
 
-.logo span { color: var(--primary); font-weight: bold; }
+#env-banner.dev { background: #2196f3; }
+#env-banner.staging { background: #ff9800; }
+#env-banner.prod { background: #f44336; }
 
-.hero { text-align: center; padding: 100px 20px; }
-.hero h1 span { color: var(--primary); }
+.container {
+  padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-.card-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
 
 .card {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    width: 250px;
-    transition: transform 0.3s ease, border 0.3s ease;
-    border: 1px solid #30363d;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
+.badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: bold;
 }
 
-/* Pipeline Status Styles */
-.hidden { display: none; }
+.badge.up { background: #4caf50; color: white; }
+.badge.down { background: #f44336; color: white; }
 
-#status-page {
-    padding: 50px 10%;
-    animation: fadeIn 0.5s ease-in;
+.pipeline {
+  margin-top: 30px;
+}
+
+.pipeline-steps {
+  display: flex;
+  gap: 10px;
 }
 
 .step {
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    background: #1c2128;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: #ddd;
 }
 
-.success { border-left: 5px solid #238636; }
-.loading { border-left: 5px solid #d29922; animation: pulse 1.5s infinite; }
+.step.active {
+  background: #4caf50;
+  color: white;
+}
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+.accordion {
+  margin-top: 30px;
+}
+
+.accordion-btn {
+  width: 100%;
+  padding: 15px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.accordion-content {
+  display: none;
+  background: white;
+  padding: 15px;
+  border-radius: 0 0 8px 8px;
+}
+
+.links {
+  margin-top: 30px;
+}
+
+.links a {
+  display: inline-block;
+  margin-right: 15px;
+  text-decoration: none;
+  color: #2196f3;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: #ccc;
+  margin-top: 40px;
+}
